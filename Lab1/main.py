@@ -1,5 +1,6 @@
 from simplex_method import initial_simplex_method, np
 from input import numberInput, vectorInput, matrixInput
+from math import floor
 
 def gomori_restriction(c, A, b):
     x, B, A, b = initial_simplex_method(c, A, b)
@@ -34,9 +35,9 @@ def gomori_restriction(c, A, b):
     
     l = Q[k, :]
     for n in l:
-        n = n - int(n)
+        n = n - floor(n)
 
-    x_i_float = x_i - int(x_i)
+    x_i_float = x_i - floor(x_i)
     x_l = np.zeros(len(x))
     for l_i, n_i in zip(l, N):
         x_l[n_i] = l_i
